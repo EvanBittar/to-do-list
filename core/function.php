@@ -23,3 +23,11 @@ function IsDone($value):bool{
 function base_path($path){
     return __DIR__ . '/../' . $path;
 }
+
+function abort($code=404){
+    http_response_code(404);
+    
+    require base_path("view/{$code}.php");
+    
+    die();
+    }

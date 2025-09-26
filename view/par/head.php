@@ -76,7 +76,7 @@ body {
 .tasks{
     padding-left: 0%;
 }
-form{
+form  {
     display: flex;
     gap: 100px;
     margin-bottom: 14px;
@@ -88,7 +88,7 @@ input{
     border: 1px solid #ddd;
     outline: none;
 }
-form button{
+form button {
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 4px;
@@ -100,6 +100,20 @@ form button{
     color: red;
     font-size: small;
     margin: 2%;
+}
+.login{
+    display: inline-block;
+    background-color: #2575fc;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2%;
 }
     </style>
 </head>

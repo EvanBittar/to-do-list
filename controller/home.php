@@ -2,7 +2,7 @@
 $config = require base_path( 'config.php');
 $db = new Database($config);
 
-$tasks = $db->query("SELECT * FROM task")->fetchAll();
+$tasks = $db->query("SELECT * FROM task")->all();
 
 
 

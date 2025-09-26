@@ -1,4 +1,4 @@
-<?php require 'par/head-Done.php'; ?>
+<?php require base_path('view/par/head-Done.php'); ?>
 
 <body>
     <div class="wrap">
