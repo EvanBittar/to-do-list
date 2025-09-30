@@ -78,19 +78,19 @@ body {
 }
 form  {
     display: flex;
-    gap: 100px;
+    gap: 30px;
     margin-bottom: 14px;
 }
 input{
-    padding: 12px 14px;
+    padding: 10px;
     font-size: 15px;
     border-radius: 4px;
     border: 1px solid #ddd;
     outline: none;
 }
 form button {
-    padding: 12px 14px;
-    font-size: 15px;
+    padding: 10px 13px;
+    font-size: 17px;
     border-radius: 4px;
     border: 1px solid #ddd;
     background: #f4f4f4;
@@ -105,10 +105,10 @@ form button {
     display: inline-block;
     background-color: #2575fc;
     color: white;
-    padding: 10px 12px;
+    padding: 8px 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: bold;
     border: none;
     border-radius: 8px;

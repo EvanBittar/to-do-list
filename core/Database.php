@@ -17,13 +17,8 @@ class Database {
     public function all(){
         return $this->statmant->fetchAll();
     }
-    public function fetch(){
-        return $this->statmant->fetch();
-    }
     public function FindOrFalse(){
-    $result = $this->statmant->fetch();
-        if(!$result){
-            return abort();
-        }
+        $result=$this->statmant->fetch();
+        return $result ?? abort();
     }
 }

@@ -2,10 +2,15 @@
 const BASE_PATH = __DIR__ . "/../";
 require BASE_PATH . 'core/function.php';
 
-require base_path('core/Database.php');
+session_start();
+
 require base_path('core/Router.php');
 
 
+spl_autoload_register(function ($class){
+$class =  str_replace("\\",DIRECTORY_SEPARATOR,$class);
+require_once base_path('core/' . $class.'.php');
+});
 $routre = new Router();
 
 $routes = require base_path('Route.php');

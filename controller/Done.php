@@ -4,7 +4,7 @@ $db = new Database($config);
 
 $task = $db->query("SELECT * FROM task WHERE  id=:id",[
     'id'=>$_GET['id'],
-])->fetch();
+])->FindOrFalse();
 
 return view('Done.view.php',[
     'task'=>$task,

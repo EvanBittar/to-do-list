@@ -6,8 +6,7 @@ $db = new Database($config);
 if($_POST['answer'] == 'YES'){
     $task = $db->query("UPDATE `task` SET `active` = 1 WHERE `id` = :id;",[
     'id'=>$_GET['id'],
-    ])->fetch();
+    ])->FindOrFalse();
 }
 
-header("location: /to-do-list/");
-exit;
+location("/to-do-list/");

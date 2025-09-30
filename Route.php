@@ -20,3 +20,5 @@ $routre->delete('/to-do-list/','controller/delete.php');
 
 $routre->get('/to-do-list/register','controller/register/create.php');
 $routre->post('/to-do-list/register','controller/register/store.php');
+
+$routre->delete('/to-do-list/logout','controller/login/delete.php');

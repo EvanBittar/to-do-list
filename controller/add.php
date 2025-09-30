@@ -1,5 +1,5 @@
 <?php 
-require base_path('core/Valude.php');
+
 $config = require base_path('config.php');
 $db = new Database($config);
 $tasks = $db->query("SELECT * FROM task")->all();
@@ -14,14 +14,14 @@ return view('index.view.php',[
     'error'=>$error
 ]);
 }
-
+$currcitid=1;
 if(empty($error)){
-    $db->query("INSERT INTO task (body,active) VALUES
-(:body,:active);",[
+    $db->query("INSERT INTO task (body,active,user_id) VALUES
+(:body,:active,:user_id);",[
     'body'=>$_POST['body'],
-    'active'=>0
+    'active'=>0,
+    'user_id'=>$currcitid,
 ]);
 }
 
-header("location: /to-do-list/");
-exit;
+location("/to-do-list/");

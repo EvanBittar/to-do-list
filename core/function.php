@@ -30,4 +30,9 @@ function abort($code=404){
     require base_path("view/{$code}.php");
     
     die();
-    }
+}
+
+function location($path){
+    header("location: {$path}");
+    exit;
+}

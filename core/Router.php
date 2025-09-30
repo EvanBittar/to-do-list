@@ -32,9 +32,7 @@ class Router{
                 return require base_path($route['controller']);
             }
         }
-        // echo $method ;
-        // echo '=========';
-        // dd($_SERVER);
+        dd($method);
             $this->abort();
     }
 
