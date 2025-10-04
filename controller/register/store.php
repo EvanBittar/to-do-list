@@ -26,6 +26,7 @@ $result = $db->query("SELECT * FROM user WHERE email=:email",[
 ])->FindOrFalse();
 #dont forget to solve the password is not match or email is include but password is incorrect
 if($result){
+    Session::set('name','evan');
     location("/to-do-list/");
 }else{
     $db->query("INSERT INTO user (email,`password`) VALUES (:email,:pass);",[

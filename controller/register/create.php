@@ -1,3 +1,3 @@
 <?php 
 
-return view('register/register.view.php');
+return view('reg-log/register.view.php');

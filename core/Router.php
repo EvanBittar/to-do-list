@@ -32,7 +32,7 @@ class Router{
                 return require base_path($route['controller']);
             }
         }
-        dd($method);
+        // dd($method);
             $this->abort();
     }
 

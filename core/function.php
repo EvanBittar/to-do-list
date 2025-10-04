@@ -36,3 +36,9 @@ function location($path){
     header("location: {$path}");
     exit;
 }
+
+function check ($p1,$p2){
+    if($p2 == null)
+        return false;
+    return $p1 == $p2;
+}

@@ -2,25 +2,25 @@
 
 $config = require base_path('config.php');
 $db = new Database($config);
-$tasks = $db->query("SELECT * FROM task")->all();
+$task = $db->query("SELECT * FROM task WHERE id=:id",[
+    'id'=>$_GET['id'],
+])->FindOrFalse();
 
 $error= [];
 
 
 if(!(new Valude())::string($_POST['body'],1,10)){
 $error['body']='must at least 10';
-return view('index.view.php',[
-    'tasks'=>$tasks,
+return view('edit.view.php',[
+    'task'=>$task,
     'error'=>$error
 ]);
 }
 $currcitid=1;
 if(empty($error)){
-    $db->query("INSERT INTO task (body,active,user_id) VALUES
-(:body,:active,:user_id);",[
+    $db->query("UPDATE task SET body=:body WHERE id=:id",[
     'body'=>$_POST['body'],
-    'active'=>0,
-    'user_id'=>$currcitid,
+    'id'=>$_GET['id'],
 ]);
 }
 
