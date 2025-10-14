@@ -1,5 +1,9 @@
 <?php
 
+use Core\Valude;
+use Core\Session;
+use Core\Database;
+
 $config = require base_path('config.php');
 $db = new Database($config);
 
@@ -29,7 +33,7 @@ if($result){
 }else{
     $db->query("INSERT INTO user (email,`password`) VALUES (:email,:pass)",[
         'email'=>$_POST['email'],
-        'pass'=>$_POST['password'],
+        'pass'=>password_hash($_POST['password'], PASSWORD_BCRYPT),
     ]);
     Session::set('name','evan');
     location("/to-do-list/");

@@ -1,5 +1,9 @@
 <?php 
 
+namespace Core;
+
+use Core\Valude;
+
 class logform{
     
     protected $error = [];

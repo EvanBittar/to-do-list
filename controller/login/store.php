@@ -1,5 +1,9 @@
 <?php 
 
+use Core\logform;
+use Core\Session;
+use Core\Database;
+
 $email=$_POST['email'];
 $password=$_POST['password'];
 
