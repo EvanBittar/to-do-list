@@ -5,34 +5,27 @@ $password=$_POST['password'];
 
 $config = require base_path('config.php');
 $db = new Database($config);
+$valude = new logform();
 
-$error=[];
 
-if(!Valude::email($_POST['email'])){
-    $error ['email'] = 'give real email';
-}
-
-if(!Valude::string($_POST['password'],8,20)){
-    $error['password'] = 'the password must be at least 8';
-}
-
-if(count($error)){
+if (! $valude->validate($email,$password)){
+    $valude->setError('password','password or email worng');
     return view('reg-log/login.view.php',[
-    'error'=>$error,
-]);
+        'error'=>$valude->getError(),
+    ]);
 }
 
-$result = $db->query("SELECT * FROM user WHERE email=:email and password=:password;",[
+$result = $db->query("SELECT * FROM user WHERE email=:email and `password`=:pass;",[
     'email'=>$email,
-    'password'=>$password,
-])->FindOrFalse();
-
-if($result){
+    'pass'=>$password,
+    ])->FindOrFalse();
+    
+    if($result){
     Session::set('name','evan');
     location("/to-do-list/");
 }else{
     $error['password'] = 'worng email or password';
     return view('reg-log/login.view.php',[
-    'error'=>$error,
+        'error'=>$error,
 ]);
 }

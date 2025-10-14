@@ -1,7 +1,5 @@
 <?php
 
-
-
 $config = require base_path('config.php');
 $db = new Database($config);
 
@@ -22,14 +20,14 @@ if(count($error)){
 }
 
 $result = $db->query("SELECT * FROM user WHERE email=:email",[
-    'email'=>$_POST['email']
+    'email'=>$_POST['email'],
 ])->FindOrFalse();
-#dont forget to solve the password is not match or email is include but password is incorrect
+
 if($result){
     Session::set('name','evan');
     location("/to-do-list/");
 }else{
-    $db->query("INSERT INTO user (email,`password`) VALUES (:email,:pass);",[
+    $db->query("INSERT INTO user (email,`password`) VALUES (:email,:pass)",[
         'email'=>$_POST['email'],
         'pass'=>$_POST['password'],
     ]);
