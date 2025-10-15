@@ -4,16 +4,16 @@ namespace Core;
 
 use core\Database;
 
-$config = require base_path('config.php');
 
 class Authenticator{
-
+    
+    public $config = require base_path('config.php');
     public $db = new Database($config);
 
     public function auth($email, $password){
     $user = $this->db->query("SELECT * FROM users WHERE email = :email",[
     'email'=>$email
-    ])->findOrFales();
+    ])->FindOrFalse();
     if ($user && password_verify($password, $user['password'])){
         $this->login([
             'email'=>$user['email'],
@@ -28,3 +28,4 @@ class Authenticator{
     ];
     }
 }
+

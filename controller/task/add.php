@@ -1,12 +1,17 @@
 <?php 
 
+use Core\App;
 use Core\Valude;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config);
-$tasks = $db->query("SELECT * FROM task")->all();
-// dd('yews');
+// $config = require base_path('config.php');
+// $db = new Database($config);
+// $tasks = $db->query("SELECT * FROM task")->all();
+
+$db = App::getContainer()->get('core\Database');
+
+dd($db);
+
 $error= [];
 
 
