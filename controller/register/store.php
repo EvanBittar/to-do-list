@@ -1,11 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Valude;
 use Core\Session;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config);
+$db = App::get(Database::class);
 
 $error=[];
 

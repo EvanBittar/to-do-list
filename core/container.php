@@ -11,12 +11,13 @@ class container{
     }
 
     public function get($key){
-        if(array_key_exists($key,$this->bindings)){
-            $resolve = $this->bindings[$key];
-        
-            return call_user_func($resolve);
+        if(!array_key_exists($key,$this->bindings)){
+            // dd($key);
+            throw new \Exception("No binding found for key: ".$key);
         }
-        throw new \Exception("No binding found for key: ".$key);
+        $resolve = $this->bindings[$key];
+            
+        return call_user_func($resolve);
     }
 
 }

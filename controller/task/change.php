@@ -1,10 +1,11 @@
 <?php 
 
 use Core\Valude;
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config);
+$db = App::get(Database::class);
+
 $task = $db->query("SELECT * FROM task WHERE id=:id",[
     'id'=>$_GET['id'],
 ])->FindOrFalse();

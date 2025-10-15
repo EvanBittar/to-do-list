@@ -3,13 +3,11 @@
 use Core\Authenticator;
 use Core\logform;
 use Core\Session;
-use Core\Database;
 
 $email=$_POST['email'];
 $password=$_POST['password'];
 
-$config = require base_path('config.php');
-$db = new Database($config);
+
 $valude = new logform();
 
 dd($valude->validate($email,$password));

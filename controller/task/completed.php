@@ -1,9 +1,9 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Database($config);
+$db = App::get(Database::class);
 
 if($_POST['answer'] == 'YES'){
     $task = $db->query("UPDATE `task` SET `active` = 1 WHERE `id` = :id;",[
