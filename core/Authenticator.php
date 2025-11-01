@@ -2,24 +2,22 @@
 
 namespace Core;
 
-use core\Database;
-
+use Core\App;
 
 class Authenticator{
-    
-    public $config = require base_path('config.php');
-    public $db = new Database($config);
 
     public function auth($email, $password){
-    $user = $this->db->query("SELECT * FROM users WHERE email = :email",[
-    'email'=>$email
+    $user = App::get(\Core\Database::class)->query("SELECT * FROM user WHERE email = :email",[
+        'email'=>$email
     ])->FindOrFalse();
     if ($user && password_verify($password, $user['password'])){
         $this->login([
             'email'=>$user['email'],
             'id'=>$user['id']
         ]);
+        return true;
     }
+    return false;
 }
     public function login($user){
     $_SESSION['user'] =[

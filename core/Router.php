@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use Core\middleware\Middleware;
 
 class Router{
     public $routre = [];
@@ -10,33 +11,39 @@ class Router{
         $this->routre[]=[
             'uri'=>$uri,
             'controller'=>$controller,
-            'method'=>$method
+            'method'=>$method,
+            'middleware'=>null 
         ];
+        return $this;
     }
     public function get($uri,$controller){
-        $this->add($uri,$controller,'GET');
+        return  $this->add($uri,$controller,'GET');
     }
     public function post($uri,$controller){
-        $this->add($uri,$controller,'POST');
+        return  $this->add($uri,$controller,'POST');
     }
     public function delete($uri,$controller){
-        $this->add($uri,$controller,'DELETE');
+        return  $this->add($uri,$controller,'DELETE');
     }
     public function create($uri,$controller){
-        $this->add($uri,$controller,'CREATE');
+        return  $this->add($uri,$controller,'CREATE');
     }
     public function done($uri,$controller){
-        $this->add($uri,$controller,'DONE');
+        return  $this->add($uri,$controller,'DONE');
     }
 
     public function route($uri,$method){                                  
         foreach ($this->routre as $route) {
             if($route['uri'] == $uri && $route['method']==strtoupper($method)){
+                Middleware::resolve($route['middleware']);
                 return require base_path($route['controller']);
             }
         }
-        // dd($method);
             $this->abort();
+    }
+    public function only($key){
+        $this->routre[array_key_last(($this->routre))]['middleware'] = $key;
+        return$this; 
     }
 
     protected function abort($code=404){
@@ -49,13 +56,3 @@ class Router{
 
 }
 
-
-
-// function route($routre){
-//     if (array_key_exists($_SERVER['REQUEST_URI'], $routre)) {
-//         return require $routre[$_SERVER['REQUEST_URI']];
-//     } else {
-//         http_response_code(404);
-//         echo '404 Not Found';
-//     }
-// }

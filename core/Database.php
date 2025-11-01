@@ -6,7 +6,7 @@ use PDO;
 class Database {
     public $connected;
     public $statmant;
-    public function __construct($config,$username='evan', $password= 'evan'){
+    public function __construct($config,$username='root', $password= '3234'){
         $dns = 'mysql: '. http_build_query($config,'',';');
         $this->connected = new PDO( $dns,$username,$password,[
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

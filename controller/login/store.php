@@ -10,8 +10,6 @@ $password=$_POST['password'];
 
 $valude = new logform();
 
-dd($valude->validate($email,$password));
-
 if ($valude->validate($email,$password)){
     if((new Authenticator)->auth($email,$password)){
         (new Session)->set('name','evan');
@@ -23,18 +21,3 @@ if ($valude->validate($email,$password)){
         'error'=>$valude->getError(),
     ]);
 }
-
-// $result = $db->query("SELECT * FROM user WHERE email=:email and `password`=:pass;",[
-//     'email'=>$email,
-//     'pass'=>$password,
-//     ])->FindOrFalse();
-    
-//     if($result){
-//     
-//     location("/to-do-list/");
-// }else{
-//     $error['password'] = 'worng email or password';
-//     return view('reg-log/login.view.php',[
-//         'error'=>$error,
-// ]);
-// }
