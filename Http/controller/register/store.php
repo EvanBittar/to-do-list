@@ -28,13 +28,13 @@ $result = $db->query("SELECT * FROM user WHERE email=:email",[
 ])->FindOrFalse();
 
 if($result){
-    Session::set('name','evan');
     location("/to-do-list/");
 }else{
     $db->query("INSERT INTO user (email,`password`) VALUES (:email,:pass)",[
         'email'=>$_POST['email'],
         'pass'=>password_hash($_POST['password'], PASSWORD_BCRYPT),
     ]);
-    Session::set('name','evan');
-    location("/to-do-list/");
 }
+
+Session::set('name','evan');
+location("/to-do-list/");

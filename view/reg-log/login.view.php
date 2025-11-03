@@ -10,7 +10,7 @@ require base_path('view/par/head-register.php')
         <form method="post" id="loginForm">
             <div class="input-group">
                 <label for="email">user-email</label>
-                <input type="text" id="email" name="email" value="<?= $_POST['email'] ?? '' ?>">
+                <input type="text" id="email" name="email" value="<?= old('email')?>">
                 <?php if (!empty($error['email'])): ?>
                     <p class="error"><?= $error['email'] ?></p>
                 <?php endif ?>

@@ -5,16 +5,14 @@ use Core\Valude;
 use Core\Database;
 
 $db = App::get(Database::class);
-
-// dd($db);
-
+$tasks = $db->query("SELECT * FROM task")->all();
 $error= [];
 
 
 if(!(new Valude())::string($_POST['body'],1,10)){
 $error['body']='must at least 10';
 return view('index.view.php',[
-    'tasks'=>$tasks,
+    'tasks'=>$tasks, 
     'error'=>$error
 ]);
 }
@@ -29,4 +27,3 @@ if(empty($error)){
 }
 
 location("/to-do-list/");
-// id - body - active - user_id

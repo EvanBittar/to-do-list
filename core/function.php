@@ -42,3 +42,6 @@ function check ($p1,$p2){
         return false;
     return $p1 == $p2;
 }
+function old($key , $defult = ''){
+    return Core\Session::get('old')[$key] ?? $defult ;
+}

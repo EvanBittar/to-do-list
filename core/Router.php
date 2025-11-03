@@ -36,7 +36,7 @@ class Router{
         foreach ($this->routre as $route) {
             if($route['uri'] == $uri && $route['method']==strtoupper($method)){
                 Middleware::resolve($route['middleware']);
-                return require base_path($route['controller']);
+                return require base_path('Http/controller/'.$route['controller']);
             }
         }
             $this->abort();
@@ -44,6 +44,9 @@ class Router{
     public function only($key){
         $this->routre[array_key_last(($this->routre))]['middleware'] = $key;
         return$this; 
+    }
+    public function previosURL(){
+        return $_SERVER['HTTP_REFERER'];
     }
 
     protected function abort($code=404){
