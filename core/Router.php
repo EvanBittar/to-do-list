@@ -25,11 +25,11 @@ class Router{
     public function delete($uri,$controller){
         return  $this->add($uri,$controller,'DELETE');
     }
-    public function create($uri,$controller){
-        return  $this->add($uri,$controller,'CREATE');
+    public function put($uri,$controller){
+        return  $this->add($uri,$controller,'PUT');
     }
-    public function done($uri,$controller){
-        return  $this->add($uri,$controller,'DONE');
+    public function patch($uri,$controller){
+        return  $this->add($uri,$controller,'PATCH');
     }
 
     public function route($uri,$method){                                  
@@ -39,6 +39,7 @@ class Router{
                 return require base_path('Http/controller/'.$route['controller']);
             }
         }
+        // dd($_POST);
             $this->abort();
     }
     public function only($key){

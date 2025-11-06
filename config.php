@@ -4,7 +4,7 @@ return [
     'port'=>3305,
     'user'=>"root",
     'password'=>"3234",
-    'dbname'=>"to-do-list",
+    'dbname'=>"to_do_list",
 ];
 
 // $host="localhost";
