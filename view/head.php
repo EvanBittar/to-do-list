@@ -27,7 +27,7 @@
     </h1>
 
     <div class="flex gap-2 justify-center sm:justify-end w-full sm:w-auto">
-      <button class="border border-black text-black px-4 py-1.5 rounded-lg hover:bg-black hover:text-white text-sm sm:text-base">Sign In</button>
-      <button class="bg-black text-white px-4 py-1.5 rounded-lg hover:opacity-80 text-sm sm:text-base">Sign Up</button>
+      <a href="/to-do-list/login" class="border border-black text-black px-4 py-1.5 rounded-lg hover:bg-black hover:text-white text-sm sm:text-base">Sign In</a>
+      <a href="/to-do-list/register" class="bg-black text-white px-4 py-1.5 rounded-lg hover:opacity-80 text-sm sm:text-base">Sign Up</a>
     </div>
   </header>

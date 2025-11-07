@@ -3,6 +3,6 @@
 use Core\Session;
 
 
-view('reg-log/login.view.php',[
+view('login/login.view.php',[
     'error'=>Session::get('errors') ?? [],
 ]);

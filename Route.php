@@ -16,7 +16,7 @@ $routre->delete('/to-do-list/delete','delete.php');
 
 
 // Authentication Routes
-$routre->get('/to-do-list/register', 'register/create.php')->only('guest');
+$routre->get('/to-do-list/register', 'register/create.php');
 $routre->post('/to-do-list/register', 'register/store.php');
 
 $routre->get('/to-do-list/login', 'login/create.php');
