@@ -5,7 +5,7 @@ use Core\Database;
 
 $db = App::get(Database::class);
 
-$tasks = $db->query("SELECT * FROM tasks")->all();
+$tasks = $db->query("SELECT * FROM tasks ORDER BY id ASC")->all();
 
 $title =  [
     ["emoji" => "📋", "title" => "Daily Grind", "desc" => "For everyday hustle and tasks"],

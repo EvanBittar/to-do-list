@@ -3,6 +3,8 @@
 $routre->get('/to-do-list/','home.php');
 $routre->post('/to-do-list/','add.php');
 $routre->put('/to-do-list/','add_task.php');
+$routre->get('/to-do-list/edit','edit.php');
+$routre->post('/to-do-list/update','update.php');
 // $routre->post('/to-do-list/','task/add.php');
 // $routre->delete('/to-do-list/','login/delete.php');
 
