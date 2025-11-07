@@ -10,7 +10,7 @@
     <h1 class="text-2xl font-bold mb-6">Edit Task</h1>
 
     <form method="POST" action="/to-do-list/update" class="w-full max-w-md space-y-4">
-        <input type="hidden" name="id" value="<?= $_GET['id'] ?? '' ?>">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($_GET['id'] ?? '') ?>">
         
         <!-- Select Template -->
         <label class="block">
@@ -46,7 +46,6 @@
             <button type="submit" class="flex-1 bg-black text-white p-2 rounded-lg hover:opacity-80">
                 Update Task
             </button>
-            <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
             <a href="/to-do-list/" class="flex-1 bg-gray-200 hover:bg-gray-300 text-center p-2 rounded-lg">
                 Cancel
             </a>
