@@ -2,9 +2,11 @@
 
 namespace Core\middleware;
 
+use Core\Session;
+
 class Guest{
     public function handle(){
-        if ($_SESSION['name'] ?? false){
+        if (Session::has('name')){
             location("/to-do-list/");
         }
     }

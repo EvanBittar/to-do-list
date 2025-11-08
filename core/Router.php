@@ -39,7 +39,6 @@ class Router{
                 return require base_path('Http/controller/'.$route['controller']);
             }
         }
-        dd($_SERVER);
             $this->abort();
     }
     public function only($key){
@@ -57,6 +56,6 @@ class Router{
         
         die();
     }
-
+    
 }
 

@@ -2,10 +2,13 @@
 
 namespace Core\middleware;
 
+use Core\Session;
+
 class Auth{
     public function handle(){
-        if (! $_SESSION['name'] ?? false){
-            location("/to-do-list/");
+        if (! (Session::has('name') ?? false)){
+            location("/to-do-list/login");
+            exit();
         }
     }
 

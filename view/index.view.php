@@ -1,4 +1,7 @@
-<?php require base_path('view/head.php') ?>
+
+<?php require base_path('view/head.php');
+// dd($_SESSION);
+ ?>
 <!-- Main Content -->
 <main class="flex flex-col lg:grid lg:grid-cols-[1.3fr_2fr_1fr] flex-grow overflow-hidden">
   <?php require base_path('view/Sidebar.php') ?>

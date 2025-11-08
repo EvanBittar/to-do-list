@@ -17,9 +17,14 @@ $error= [];
 
 $db = App::get(Database::class);
 
-$task = $db->query("SELECT * FROM tasks WHERE id=:id",[
-    'id'=>$_POST['id'],
+$task = $db->query("SELECT * FROM tasks WHERE id = :id AND user_id = :user_id", [
+    'id' => $_POST['id'],
+    'user_id' => Core\Session::get('id')
 ])->FindOrFalse();
+
+if (!$task) {
+    abort(403);
+}
 
 $title = $task['title'] ?? '';
 $emoji = $task['emoji'] ?? '';

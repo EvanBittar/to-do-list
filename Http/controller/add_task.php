@@ -24,7 +24,8 @@ return view('add.view.php',[
 }
 
 if(empty($error)){
-$db->query("INSERT INTO tasks (emoji, title) VALUES (:emoji, :title)", [
+$db->query("INSERT INTO tasks (user_id, emoji, title) VALUES (:user_id, :emoji, :title)", [
+    'user_id' => Core\Session::get('id'),
     'title' => $_POST['title'],
     'emoji' => $_POST['emoji'],
 ]);

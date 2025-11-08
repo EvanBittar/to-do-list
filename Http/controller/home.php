@@ -8,9 +8,9 @@ $db = App::get(Database::class);
 // Get the current date or use the one from the query string
 $currentDate = $_GET['date'] ?? date('Y-m-d');
 
-// Build the query based on date parameters
-$query = "SELECT * FROM tasks WHERE 1=1";
-$params = [];
+// Build the query based on date parameters and user
+$query = "SELECT * FROM tasks WHERE user_id = :user_id";
+$params = ['user_id' => Core\Session::get('id')];
 
 if (isset($_GET['date_from']) && isset($_GET['date_to'])) {
     // Date range filter (for week views)
